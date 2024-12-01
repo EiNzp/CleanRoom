@@ -882,6 +882,127 @@ body {
 /*------------------service-cards-modal END-------------------*/
 
 
+/*------------------advantages START-------------------*/
+
+.main-content {
+
+    &__advantages {
+        background: url('../img/advantages/advantages-background.png') no-repeat center center / cover;
+        // padding: 40px 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.advantages {
+
+    &__container {}
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 60px 0 20px 0;
+        text-align: center;
+    }
+
+    &__header-title {
+        color: #1F255B;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: calc(46 / 36 * 100%);
+
+        @media (max-width: 959.98px) {
+            & {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            & {
+                font-size: 26px;
+            }
+        }
+    }
+
+    &__cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        padding: 20px;
+
+        @media (max-width: 1024px) {
+            & {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            & {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    &__card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 300px;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        box-shadow: 0 0 15px #1F255B;
+
+        @media (max-width: 425px) {
+            & {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__card-title {
+        font-size: 20px;
+        color: #8EC544;
+        margin-bottom: 10px;
+
+        font-weight: 600;
+
+    }
+
+    &__card-info {
+        font-size: 16px;
+        color: black;
+
+        font-weight: 400;
+    }
+}
+
+.-container {}
+
+
+/*------------------advantages END-------------------*/
+
+
 
 /*------------------footer-------------------*/
 
