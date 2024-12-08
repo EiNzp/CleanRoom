@@ -263,3 +263,114 @@ function closeModal(modal) {
     body.style.overflow = "auto"; // Включаем скролл
   }, 300); // Время на анимацию исчезновения
 }
+
+
+
+// cleanRooms
+
+function relocateElement() {
+  const menuBody = document.querySelector('.menu__body');
+  const menuContainer = document.querySelector('.menu__container');
+  const originalParent = document.querySelector('.menu__main-info-body');
+
+  if (menuBody && menuContainer && originalParent) {
+    if (window.innerWidth <= 799.98) {
+      // Перемещаем элемент `.menu__body` после `.menu__container`
+      if (!menuContainer.nextElementSibling || menuContainer.nextElementSibling !== menuBody) {
+        menuContainer.insertAdjacentElement('afterend', menuBody);
+      }
+    } else {
+      // Возвращаем элемент `.menu__body` в `.menu__main-info-body`
+      if (!originalParent.contains(menuBody)) {
+        originalParent.appendChild(menuBody);
+      }
+    }
+  } else {
+    console.error('Не удалось найти элементы. Проверьте селекторы.');
+  }
+}
+
+// Выполняем функцию при загрузке страницы и при изменении размера окна
+window.addEventListener('resize', relocateElement);
+window.addEventListener('orientationchange', relocateElement);
+window.addEventListener('DOMContentLoaded', relocateElement);
+window.addEventListener('load', relocateElement);
+window.addEventListener('pageshow', relocateElement);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    relocateElement();
+  }
+});
+
+// 
+
+function relocateCommunicationElement() {
+  const communicationBody = document.querySelector('.menu__communication-body');
+  const menuContainer = document.querySelector('.menu__container');
+  const originalParent = document.querySelector('.menu__main-info-body');
+
+  if (communicationBody && menuContainer && originalParent) {
+    if (window.innerWidth <= 637.98) {
+      // Перемещаем элемент `.menu__communication-body` после `.menu__container`
+      if (!menuContainer.nextElementSibling || menuContainer.nextElementSibling !== communicationBody) {
+        menuContainer.insertAdjacentElement('afterend', communicationBody);
+      }
+    } else {
+      // Возвращаем элемент `.menu__communication-body` в `.menu__main-info-body`
+      if (!originalParent.contains(communicationBody)) {
+        originalParent.appendChild(communicationBody);
+      }
+    }
+  } else {
+    console.error('Не удалось найти элементы. Проверьте селекторы.');
+  }
+}
+
+// Выполняем функцию при загрузке страницы и при изменении размера окна
+window.addEventListener('resize', relocateCommunicationElement);
+window.addEventListener('orientationchange', relocateCommunicationElement);
+window.addEventListener('DOMContentLoaded', relocateCommunicationElement);
+window.addEventListener('load', relocateCommunicationElement);
+window.addEventListener('pageshow', relocateCommunicationElement);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    relocateCommunicationElement();
+  }
+});
+
+//
+
+
+function relocateContactsItem() {
+  const contactsItem = document.querySelectorAll('.menu__contacts-item')[1];
+  const menuList = document.querySelector('.menu__container');
+  const originalParent = document.querySelector('.menu__contacts-body');
+
+  if (contactsItem && menuList && originalParent) {
+    if (window.innerWidth <= 352.98) {
+      // Перемещаем элемент `.menu__contacts-item:nth-child(2)` после `.menu__list`
+      if (!menuList.nextElementSibling || menuList.nextElementSibling !== contactsItem) {
+        menuList.insertAdjacentElement('afterend', contactsItem);
+      }
+    } else {
+      // Возвращаем элемент `.menu__contacts-item:nth-child(2)` в исходный контейнер
+      if (!originalParent.contains(contactsItem)) {
+        originalParent.appendChild(contactsItem);
+      }
+    }
+  } else {
+    console.error('Не удалось найти элементы. Проверьте селекторы.');
+  }
+}
+
+// Выполняем функцию при загрузке страницы и при изменении размера окна
+window.addEventListener('resize', relocateContactsItem);
+window.addEventListener('orientationchange', relocateContactsItem);
+window.addEventListener('DOMContentLoaded', relocateContactsItem);
+window.addEventListener('load', relocateContactsItem);
+window.addEventListener('pageshow', relocateContactsItem);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    relocateContactsItem();
+  }
+});
