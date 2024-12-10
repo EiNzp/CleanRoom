@@ -518,7 +518,7 @@ body {
   width: 100%;
   background-image: url("../img/main-block/main-block-background.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
 }
 .main-block__container {
