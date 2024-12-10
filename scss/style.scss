@@ -170,6 +170,7 @@ body {
 
         @media (max-width: 637.98px) {
             justify-content: space-around;
+            margin-bottom: 5px;
         }
 
         @media (max-width: 554.98px) {
@@ -433,6 +434,347 @@ body {
 
 
 /*------------------HEADER end-------------------*/
+
+
+
+/*------------------modal start-------------------*/
+
+// body {
+//     font-family: Arial, sans-serif;
+//     margin: 0;
+//     padding: 0;
+// }
+
+// .btn {
+//     padding: 10px 20px;
+//     font-size: 16px;
+//     cursor: pointer;
+//     border: none;
+//     border-radius: 4px;
+//     background-color: #007BFF;
+//     color: #fff;
+//     transition: background-color 0.3s;
+
+//     &:hover {
+//         background-color: #0056b3;
+//     }
+// }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        display: flex;
+    }
+
+    &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    &-content {
+        background: #fff;
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 8px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &-title {
+        margin: 0 0 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        color: #1F255B;
+    }
+
+    &-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .input-field {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+    }
+
+    .btn-submit {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s, color 0.3s, text-shadow 0.3s;
+        background-color: #8EC544;
+        color: #1F255B;
+        border: none;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+        &:hover {
+            background-color: #218838;
+
+            background-color: #73a333;
+            color: #ffffff;
+            transform: scale(1.05);
+            text-shadow: 2px 2px 5px rgb(0, 0, 0);
+        }
+    }
+}
+
+
+/*------------------modal end-------------------*/
+
+
+
+/*------------------main-block start-------------------*/
+
+.main-block {
+    height: 500px;
+    width: 100%;
+    background-image: url('../img/main-block/main-block-background.jpg'); // Замените на путь к вашей картинке
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    &__container {
+        height: 100%;
+        display: flex;
+        align-items: start;
+        padding: 75px 20px; // Для отступов
+    }
+
+    &__content {
+        max-width: 700px; // Опционально для ограничения ширины текста
+    }
+
+    &__title {
+        font-size: 64px; // Размер заголовка
+        font-weight: 700;
+        color: white; // Цвет текста
+        margin-bottom: 1rem;
+
+        line-height: 1.25;
+    }
+
+    &__subtitle {
+        font-size: 18px; // Размер подзаголовка
+        color: white; // Цвет текста
+
+        line-height: 1.25;
+    }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+    .main-block {
+        height: 450px;
+    }
+
+    .main-block__title {
+        font-size: 42px;
+    }
+
+    .main-block__subtitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 451px) {
+    .main-block__title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-block__title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 352px) {
+    .main-block {
+        height: 500px;
+    }
+}
+
+/*------------------main-block end-------------------*/
+
+
+
+/*------------------main-form-block start-------------------*/
+
+.main-block {
+    position: relative;
+    z-index: 1;
+}
+
+.main-form-block {
+    position: relative;
+    z-index: 2;
+
+    &__container {
+        position: relative;
+
+        min-height: 175px;
+
+        @media (max-width: 768px) {
+            min-height: 250px;
+        }
+    }
+
+    &__form {
+        position: absolute;
+        top: -50%; // Перекрытие предыдущего блока на 50%
+        left: 50%;
+        transform: translateX(-50%);
+        background: #f7f7f7;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: max-content;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr; // Мобильная версия — 1 колонка
+
+            top: -60%;
+        }
+
+        @media (max-width: 450px) {
+            width: 350px;
+        }
+
+        @media (max-width: 400px) {
+            width: 300px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            .form-label {
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+                // color: #6c7b8a;
+                color: #1F255B;
+                font-size: 14px;
+            }
+
+            .form-select,
+            .form-input {
+                padding: 0.75rem;
+                // border: 1px solid #ddd;
+
+                border: 1px solid #73a333;
+
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                font-size: 18px;
+
+                @media (max-width: 450px) {
+                    width: 100%;
+                    font-size: 16px;
+                }
+
+
+            }
+
+
+
+            .form-button {
+                padding: 0.98rem;
+                // background: #007bff;
+                // color: white;
+                // font-weight: bold;
+                // border: none;
+                border-radius: 0.5rem;
+                // cursor: pointer;
+                text-align: center;
+                // transition: background-color 0.3s;
+
+                cursor: pointer;
+                transition: transform 0.2s ease, background 0.3s, color 0.3s, text-shadow 0.3s;
+                background-color: #8EC544;
+                color: #1F255B;
+                border: none;
+                font-weight: bold;
+                font-size: 14px;
+                text-transform: uppercase;
+                text-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+                &:hover {
+                    // background-color: #0056b3;
+
+                    background-color: #73a333;
+                    color: #ffffff;
+                    transform: scale(1.05);
+                    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+                }
+
+                grid-column: span 2; // Занимает две ячейки в мобильной версии
+
+                @media (min-width: 768px) {
+                    grid-column: span 1; // Одна ячейка в двухколоночной сетке
+                }
+            }
+        }
+    }
+}
+
+
+/*------------------main-form-block end-------------------*/
+
+
+
 
 /*------------------ecommerce-personal-------------------*/
 
@@ -1028,6 +1370,115 @@ body {
 
 
 /*------------------service-cards-modal END-------------------*/
+
+
+
+/*------------------additional-services START-------------------*/
+
+
+
+// Основные стили для таблицы
+.additional-services__table {
+    width: 70%;
+    border-radius: 8px; // Скругление углов
+    overflow: hidden; // Чтобы скругленные углы не выходили за рамки
+    border: 1px solid #e0e0e0; // Лёгкая светлая рамка
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Тень для лёгкого "подъёма" таблицы
+    // font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
+    margin: 20px auto 40px auto;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+
+    @media (max-width: 992px) {
+        & {
+            width: 94%;
+        }
+    }
+
+    @media (max-width: 425px) {
+        & {
+            width: 100%;
+        }
+    }
+
+    // Заголовок таблицы
+    th {
+        background-color: #f7f7f7;
+        // color: #333;
+        color: #1F255B;
+        font-size: 20px; // Увеличиваем размер шрифта заголовка
+        font-weight: 700; // Жирный шрифт
+        padding: 14px 20px;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+
+    // Строки таблицы
+    td {
+        padding: 14px 20px;
+        text-align: left;
+        font-size: 18px; // Увеличиваем размер шрифта
+        color: #555;
+        font-weight: 600; // Жирность для строк
+        border-top: 1px solid #f0f0f0;
+    }
+
+    // Чересстрочная (alternate) окраска строк для лучшей читаемости
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #fafafa;
+        transform: translateY(-2px); // Лёгкое поднятие строки при наведении
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Тень при наведении
+    }
+
+    // Каскадное оформление заголовка и столбцов
+    thead {
+        border-bottom: 2px solid #ddd;
+    }
+
+    // Адаптивность для маленьких экранов
+    @media (max-width: 768px) {
+        .additional-services__table {
+            font-size: 0.9rem; // Уменьшаем размер шрифта
+        }
+
+        th,
+        td {
+            padding: 10px 15px; // Уменьшаем отступы в ячейках
+        }
+
+        // Чтобы таблица была прокручиваемой на мобильных устройствах
+        .additional-services__container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; // Для плавной прокрутки на мобильных устройствах
+        }
+    }
+
+    // Очень маленькие экраны (например, мобильные телефоны)
+    @media (max-width: 480px) {
+        .additional-services__table {
+            // font-size: 0.8rem; // Дополнительное уменьшение шрифта
+        }
+
+        th,
+        td {
+            padding: 8px 12px; // Меньше отступов для мобильных
+        }
+
+        th {
+            // font-size: 1rem; // Уменьшаем шрифт заголовка
+        }
+    }
+}
+
+
+/*------------------additional-services END-------------------*/
+
 
 
 /*------------------advantages START-------------------*/

@@ -33,6 +33,18 @@
             </div>
         </header> -->
 
+        <div class="modal" id="contact-modal" aria-hidden="true">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+                <h2 class="modal-title">Contact Us</h2>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" placeholder="Your Name" class="input-field" required>
+                    <input type="tel" placeholder="Phone Number" class="input-field phone-mask" required>
+                    <button type="submit" class="btn btn-submit">Send</button>
+                </form>
+            </div>
+        </div>
 
         <header class="header">
             <div class="header__container -container">
@@ -87,7 +99,7 @@
                                         </div>
                                     </div>
                                     <div class="menu__communication-item"><button
-                                            class="menu__contact-form-buttom">Order a
+                                            class="menu__contact-form-buttom btn-modal-trigger">Order a
                                             call</button></div>
                                 </div>
                             </div>
@@ -117,6 +129,69 @@
 
         <div class="main-content">
 
+            <!-- main-block -->
+
+            <!-- <div class="main-content__main-block main-block" id="main-block">
+                <div class="main-block__container -container">
+
+                </div>
+            </div> -->
+            <div class="main-content__main-block main-block" id="main-block">
+                <div class="main-block__container -container">
+                    <div class="main-block__content">
+                        <h1 class="main-block__title">Cleaning Services in Oxford and Bicester.</h1>
+                        <p class="main-block__subtitle">
+                            We give you 100% satisfaction guarantee. Your positive feedback is our priority!
+                            Our team consists only of trustworthy staff, so you don’t have to worry about your
+                            belongings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- main-form-block -->
+
+            <div class="main-content__main-form-block main-form-block" id="main-form-block">
+                <div class="main-form-block__container -container">
+                    <form class="main-form-block__form">
+                        <label for="service" class="form-group">
+                            <span class="form-label">Select a service</span>
+                            <select id="service" class="form-select" required>
+                                <option value="" disabled selected>Choose a service</option>
+                                <option value="deep-cleaning">Deep Cleaning</option>
+                                <option value="post-construction-cleaning">Post-construction cleaning</option>
+                                <option value="regular-cleaning">Regular cleaning</option>
+                                <option value="one-time-cleaning">One-time cleaning</option>
+                                <option value="end-tenancy-cleaning">End-of-tenancy cleaning</option>
+                                <option value="hotel-room-cleaning">Hotel room cleaning</option>
+                                <option value="school-cleaning">School and university cleaning</option>
+                                <option value="student-room-cleaning">Student room cleaning</option>
+                                <option value="holiday-cleaning">Holiday and weekend cleaning services</option>
+                                <option value="office-cleaning">Office cleaning</option>
+                                <option value="post-party-cleaning">Post-party cleaning</option>
+                                <option value="garden-care">Garden care</option>
+                            </select>
+                        </label>
+                        <label for="name" class="form-group">
+                            <span class="form-label">Your name</span>
+                            <input type="text" id="name" class="form-input" placeholder="Name" required>
+                        </label>
+                        <label for="phone" class="form-group">
+                            <span class="form-label">Phone number</span>
+                            <input type="tel" id="phone" class="form-input" placeholder="+44 1234 567890" required>
+                        </label>
+                        <div class="form-group">
+                            <button type="submit" class="form-button">Order a call</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
             <!-- service-cards -->
 
 
@@ -127,7 +202,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Deep Cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="1">More
                                     Details</button>
                             </div>
@@ -138,7 +213,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Post-construction cleaning</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="2">More
                                     Details</button>
                             </div>
@@ -149,7 +224,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Regular cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="3">More
                                     Details</button>
                             </div>
@@ -160,7 +235,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">One-time cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="4">More
                                     Details</button>
                             </div>
@@ -171,7 +246,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">End-of-tenancy cleaning</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="5">More
                                     Details</button>
                             </div>
@@ -182,7 +257,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Hotel room cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="6">More
                                     Details</button>
                             </div>
@@ -193,7 +268,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">School and university cleaning</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="7">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -203,7 +278,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Student room cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="8">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -213,7 +288,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Holiday and weekend cleaning services</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="9">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -223,7 +298,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Office cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="10">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -233,7 +308,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Post-party cleaning<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="11">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -243,7 +318,7 @@
                             <!-- <div class="service-cards__card-image"></div> -->
                             <h3 class="service-cards__card-title">Garden care<br>&nbsp</h3>
                             <div class="service-cards__card-buttons">
-                                <button class="service-cards__button-book">Book Now</button>
+                                <button class="service-cards__button-book btn-modal-trigger">Book Now</button>
                                 <button class="service-cards__button-details" data-modal="12">More Details</button>
                             </div>
                             <div class="service-cards__card-price">75£</div>
@@ -301,7 +376,7 @@
 
                             <!-- <p class="service-cards__modal-info">Подробное описание услуги Garden care.</p> -->
                         </div>
-                        <button class="service-cards__modal-button">Book Now</button>
+                        <button class="service-cards__modal-button btn-modal-trigger">Book Now</button>
                     </div>
                     <span class="service-cards__modal-close">&times;</span>
                 </div>
@@ -359,7 +434,7 @@
 
                             <!-- <p class="service-cards__modal-info">Подробное описание услуги Garden care.</p> -->
                         </div>
-                        <button class="service-cards__modal-button">Book Now</button>
+                        <button class="service-cards__modal-button btn-modal-trigger">Book Now</button>
                     </div>
                     <span class="service-cards__modal-close">&times;</span>
                 </div>
@@ -393,7 +468,7 @@
                                 cleaning agents, the use of special tools, window washing, or washing in hard-to-reach
                                 places</p>
                         </div>
-                        <button class="service-cards__modal-button">Book Now</button>
+                        <button class="service-cards__modal-button btn-modal-trigger">Book Now</button>
                     </div>
                     <span class="service-cards__modal-close">&times;</span>
                 </div>
@@ -427,7 +502,7 @@
                                 cleaning agents, the use of special tools, window washing, or washing in hard-to-reach
                                 places</p>
                         </div>
-                        <button class="service-cards__modal-button">Book Now</button>
+                        <button class="service-cards__modal-button btn-modal-trigger">Book Now</button>
                     </div>
                     <span class="service-cards__modal-close">&times;</span>
                 </div>
@@ -480,12 +555,51 @@
 
                             <!-- <p class="service-cards__modal-info">Подробное описание услуги Garden care.</p> -->
                         </div>
-                        <button class="service-cards__modal-button">Book Now</button>
+                        <button class="service-cards__modal-button btn-modal-trigger">Book Now</button>
                     </div>
                     <span class="service-cards__modal-close">&times;</span>
                 </div>
             </div>
 
+
+            <!-- additional-services -->
+
+
+            <div class="main-content__additional-services additional-services" id="additional-services">
+                <div class="additional-services__container -container">
+                    <table class="additional-services__table">
+                        <thead>
+                            <tr>
+                                <th>Additional services:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oven cleaning</td>
+                            </tr>
+                            <tr>
+                                <td>Window cleaning</td>
+                            </tr>
+                            <tr>
+                                <td>Concierge (look after the house in your absence)</td>
+                            </tr>
+                            <tr>
+                                <td>Cleaning of street areas</td>
+                            </tr>
+                            <tr>
+                                <td>Minor home repairs</td>
+                            </tr>
+                            <tr>
+                                <td>Furniture assembly</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <!-- advantages -->
 
             <div class="main-content__advantages advantages" id="advantages">
                 <div class="advantages__container -container">

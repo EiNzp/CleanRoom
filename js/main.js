@@ -374,3 +374,66 @@ document.addEventListener('visibilitychange', () => {
     relocateContactsItem();
   }
 });
+
+
+
+
+// modal form
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('contact-modal');
+  const openModalBtns = document.querySelectorAll('.btn-modal-trigger');
+  const closeModalBtn = modal.querySelector('.modal-close');
+  const overlay = modal.querySelector('.modal-overlay');
+
+  const openModal = () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Enable scrolling
+  };
+
+  openModalBtns.forEach((btn) => btn.addEventListener('click', openModal));
+  closeModalBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Phone number mask
+  const phoneInputs = document.querySelectorAll('.phone-mask');
+  phoneInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 0) {
+        value = `+${value.slice(0, 1)} (${value.slice(1, 4)}) ${value.slice(4, 7)}-${value.slice(7, 9)}-${value.slice(9, 11)}`;
+      }
+      e.target.value = value.slice(0, 18);
+    });
+  });
+});
+
+
+// main-form-block
+document.addEventListener("DOMContentLoaded", () => {
+  const phoneInput = document.getElementById("phone");
+
+  phoneInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.startsWith("44")) {
+      value = "+" + value;
+    } else {
+      value = "+44 " + value;
+    }
+
+    value = value.replace(/(\+44\s\d{4})(\d{3})(\d{3})/, "$1 $2 $3");
+    e.target.value = value;
+  });
+});
+

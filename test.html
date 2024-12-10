@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <header class="header">
+      <div class="header__container -container">
+         <a href="index.html" class="header__logo logo">
+            <H2 class="logo__item">CleanRooms</H2>
+         </a>
+         <div class="header__menu menu">
+            <div class="menu__container">
+               <div class="menu__logo-body">
+                  <img src="" alt="" class="menu__logo-img">
+               </div>
+               <div class="menu__main-info-body">
+                  <div class="menu__main-info-row">
+                     <div class="menu__adress-body">
+                        <div class="menu__adress-item">
+                           <svg class="menu__adress-icon-location" aria-hidden="true" role="img" focusable="false"
+                              width="14" height="20" viewBox="0 0 14 20" fill="red" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M7 0C3.14018 0 0 3.15904 0 7.042C0 11.8609 6.26431 18.9353 6.53102 19.2341C6.78154 19.5148 7.21892 19.5143 7.46898 19.2341C7.73569 18.9353 14 11.8609 14 7.042C13.9999 3.15904 10.8598 0 7 0ZM7 10.585C5.05803 10.585 3.47816 8.99563 3.47816 7.042C3.47816 5.08837 5.05807 3.49901 7 3.49901C8.94193 3.49901 10.5218 5.0884 10.5218 7.04204C10.5218 8.99567 8.94193 10.585 7 10.585Z"
+                                 fill="red"></path>
+                           </svg>
+                           <p class="menu__adress-info">Oxford</p>
+                        </div>
+                        <div class="menu__adress-item">
+                           <svg class="menu__adress-icon-location" aria-hidden="true" role="img" focusable="false"
+                              width="14" height="20" viewBox="0 0 14 20" fill="red" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M7 0C3.14018 0 0 3.15904 0 7.042C0 11.8609 6.26431 18.9353 6.53102 19.2341C6.78154 19.5148 7.21892 19.5143 7.46898 19.2341C7.73569 18.9353 14 11.8609 14 7.042C13.9999 3.15904 10.8598 0 7 0ZM7 10.585C5.05803 10.585 3.47816 8.99563 3.47816 7.042C3.47816 5.08837 5.05807 3.49901 7 3.49901C8.94193 3.49901 10.5218 5.0884 10.5218 7.04204C10.5218 8.99567 8.94193 10.585 7 10.585Z"
+                                 fill="red"></path>
+                           </svg>
+                           <p class="menu__adress-info">Bicester</p>
+                        </div>
+                     </div>
+                     <div class="menu__communication-body">
+                        <div class="menu__communication-item">
+                           <div class="menu__contacts-body">
+                              <div class="menu__contacts-item"><a href="tel:+447828794342"
+                                    class="menu__contacts-link">+44
+                                    782 879 43 42</a>
+                                 <img src="../../test1/390026be-717f-44d5-862f-db591784d1fa.png" alt=""
+                                    class="menu__contacts-icon">
+                              </div>
+                              <div class="menu__contacts-item"><a href="mailto:evropaukrainec@gmail.com"
+                                    class="menu__contacts-link">evropaukrainec@gmail.com</a></div>
+                           </div>
+                        </div>
+                        <div class="menu__communication-item"><button class="menu__contact-form-buttom">Order a
+                              call</button></div>
+                     </div>
+                  </div>
+                  <nav class="menu__body">
+                     <ul class="menu__list">
+                        <li class="menu__item"><a href="#catalog" class="menu__link">Ми виготовляємо</a></li>
+                        <li class="menu__item"><a href="#reviews" class="menu__link">Відгуки</a></li>
+                        <li class="menu__item"><a href="#contacs" class="menu__link">Контакти</a></li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+
+            <button type="button" class="menu__icon-button"><span></span></button>
+
+         </div>
+      </div>
+   </header>
+</body>
+
+</html>
+
+
+
+&__icon-button {
+display: none;
+
+@media (max-width: 991.98px) {
+& {
+z-index: 5;
+display: block;
+position: relative;
+width: 30px;
+height: 24px;
+cursor: pointer;
+background-color: #5d5d5d;
+
+&::before,
+&::after,
+&>span {
+left: 0;
+position: absolute;
+height: 10%;
+width: 100%;
+transition: all 600ms ease;
+background-color: #fff;
+}
+
+&::before,
+&::after {
+content: "";
+}
+
+&::before {
+top: 0;
+}
+
+&::after {
+bottom: 0;
+}
+
+&>span {
+top: 50%;
+transform: scale(1) translate(0, -50%);
+}
+}
+
+&_active {
+&>span {
+transform: scale(0) translate(0, -50%);
+}
+
+&::before {
+top: 50%;
+transform: rotate(-45deg) translate(0, -50%);
+}
+
+&::after {
+top: 50%;
+transform: rotate(45deg) translate(0, -50%);
+}
+}
+}
+}
