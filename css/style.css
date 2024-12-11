@@ -1173,6 +1173,38 @@ body {
 }
 
 /*------------------additional-services END-------------------*/
+/*------------------button-additional-services START-------------------*/
+.button-additional-services__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-additional-services__book-now-btn {
+  padding: 20px 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s, color 0.3s, text-shadow 0.3s;
+  background-color: #8EC544;
+  color: #1F255B;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+  margin-bottom: 50px;
+}
+.button-additional-services__book-now-btn:hover {
+  background-color: #73a333;
+  color: #ffffff;
+  transform: scale(1.05);
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.button-additional-services__container {
+  /* Центрируем по вертикали */
+}
+
+/*------------------button-additional-services END-------------------*/
 /*------------------advantages START-------------------*/
 .main-content__advantages {
   background: url("../img/advantages/advantages-background.png") no-repeat center center/cover;
