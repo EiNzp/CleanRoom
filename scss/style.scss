@@ -576,10 +576,15 @@ body {
 .main-block {
     height: 500px;
     width: 100%;
-    background-image: url('../img/main-block/main-block-background.jpg'); // Замените на путь к вашей картинке
+    // background-image: url('../img/main-block/main-block-background.jpg'); // Замените на путь к вашей картинке
+    background-image: url('../img/main-block/main-block-background1.png'); // Замените на путь к вашей картинке
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
+
+    @media (max-width: 768px) {
+        background-position: top right;
+    }
 
 
     &__container {
@@ -596,7 +601,8 @@ body {
     &__title {
         font-size: 64px; // Размер заголовка
         font-weight: 700;
-        color: white; // Цвет текста
+        // color: white; // Цвет текста
+        color: #1F255B; // Цвет текста
         margin-bottom: 1rem;
 
         line-height: 1.25;
@@ -604,7 +610,8 @@ body {
 
     &__subtitle {
         font-size: 18px; // Размер подзаголовка
-        color: white; // Цвет текста
+        // color: white; // Цвет текста
+        color: #1F255B; // Цвет текста
 
         line-height: 1.25;
     }

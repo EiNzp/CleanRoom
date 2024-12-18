@@ -516,10 +516,15 @@ body {
 .main-block {
   height: 500px;
   width: 100%;
-  background-image: url("../img/main-block/main-block-background.jpg");
+  background-image: url("../img/main-block/main-block-background1.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .main-block {
+    background-position: top right;
+  }
 }
 .main-block__container {
   height: 100%;
@@ -533,13 +538,13 @@ body {
 .main-block__title {
   font-size: 64px;
   font-weight: 700;
-  color: white;
+  color: #1F255B;
   margin-bottom: 1rem;
   line-height: 1.25;
 }
 .main-block__subtitle {
   font-size: 18px;
-  color: white;
+  color: #1F255B;
   line-height: 1.25;
 }
 
