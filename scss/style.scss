@@ -60,6 +60,11 @@ body {
             align-items: center;
         }
 
+        @media (max-width: 659.98px) {
+            // после того как убрали локации из меню
+            flex-direction: column;
+        }
+
         @media (max-width: 399.98px) {
             font-size: 14px;
         }
@@ -94,16 +99,23 @@ body {
     &__main-info-row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: flex-end;
         padding: 10px 0px 10px 10px;
 
 
         @media (max-width: 799.98px) {
+
+            align-items: flex-end;
             flex-direction: column;
         }
 
+        @media (max-width: 659.98px) {
+            align-items: center;
+        }
+
         @media (max-width: 469.98px) {
-            align-items: start;
+            // align-items: start;
 
             padding: 0px;
         }
@@ -130,7 +142,7 @@ body {
             margin-top: 10px;
         }
 
-        @media (max-width: 469.98px) {
+        @media (max-width: 564.98px) {
             flex-direction: column;
             row-gap: 10px;
             margin-top: 0px;
@@ -170,11 +182,19 @@ body {
 
         @media (max-width: 637.98px) {
             justify-content: space-around;
-            margin-bottom: 5px;
+            // margin-bottom: 5px;
         }
 
-        @media (max-width: 554.98px) {
-            column-gap: 5px;
+        // @media (max-width: 554.98px) {
+        //     column-gap: 5px;
+        // }
+
+        @media (max-width: 569.98px) {
+            column-gap: 30px;
+        }
+
+        @media (max-width: 352.98px) {
+            column-gap: 10px;
         }
 
         @media (max-width: 549.98px) {
@@ -186,13 +206,21 @@ body {
 
     &__contacts-body {
 
+        // после того как убрали локации из меню
+        @media (max-width: 659.98px) {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+        }
+
         @media (max-width: 637.98px) {
             display: flex;
             align-items: center;
-            column-gap: 5px;
+            // column-gap: 5px;
         }
 
-        @media (max-width: 549.98px) {
+
+        @media (max-width: 569.98px) {
             flex-direction: column;
             align-items: start;
         }
@@ -215,12 +243,16 @@ body {
         &:not(:last-child) {
             margin-bottom: 8px;
 
-            @media (max-width: 637.98px) {
+            @media (max-width: 659.98px) {
                 margin-bottom: 0px;
             }
 
+            @media (max-width: 569.98px) {
+                margin-bottom: 8px;
+            }
+
             @media (max-width: 352.98px) {
-                padding: 0px 0px 10px 0;
+                // padding: 0px 0px 10px 0;
                 text-align: center;
             }
         }
@@ -262,6 +294,15 @@ body {
 
         @media (max-width: 374.98px) {
             padding: 10px 10px;
+        }
+
+        @media (max-width: 331.98px) {
+            font-size: 13px;
+            padding: 8px 8px;
+        }
+
+        @media (max-width: 320.98px) {
+            padding: 7px 7px;
         }
     }
 
@@ -576,8 +617,8 @@ body {
 .main-block {
     height: 500px;
     width: 100%;
-    // background-image: url('../img/main-block/main-block-background.jpg'); // Замените на путь к вашей картинке
-    background-image: url('../img/main-block/main-block-background1.png'); // Замените на путь к вашей картинке
+    background-image: url('../img/main-block/main-block-background.jpg'); // Замените на путь к вашей картинке
+    // background-image: url('../img/main-block/main-block-background1.png'); // Замените на путь к вашей картинке
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -601,8 +642,8 @@ body {
     &__title {
         font-size: 64px; // Размер заголовка
         font-weight: 700;
-        // color: white; // Цвет текста
-        color: #1F255B; // Цвет текста
+        color: white; // Цвет текста
+        // color: #1F255B; // Цвет текста
         margin-bottom: 1rem;
 
         line-height: 1.25;
@@ -610,10 +651,40 @@ body {
 
     &__subtitle {
         font-size: 18px; // Размер подзаголовка
-        // color: white; // Цвет текста
-        color: #1F255B; // Цвет текста
+        color: white; // Цвет текста
+        // color: #1F255B; // Цвет текста
 
         line-height: 1.25;
+
+        margin-bottom: 10px;
+    }
+
+    &__adress-body {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: center;
+    }
+
+    &__adress-item {
+        display: flex;
+        column-gap: 8px;
+        align-items: center;
+    }
+
+    &__adress-icon-location {}
+
+    &__adress-info {
+        color: white;
+
+
+        @media (max-width: 768px) {
+            & {
+                font-size: 15px;
+            }
+        }
+
     }
 }
 
@@ -671,7 +742,11 @@ body {
         min-height: 175px;
 
         @media (max-width: 768px) {
-            min-height: 250px;
+            min-height: 280px;
+        }
+
+        @media (max-width: 477.98px) {
+            min-height: 300px;
         }
     }
 
@@ -692,7 +767,27 @@ body {
         @media (max-width: 768px) {
             grid-template-columns: 1fr; // Мобильная версия — 1 колонка
 
-            top: -60%;
+            // top: -60%;
+        }
+
+        @media (max-width: 659.98px) {
+            top: -40%;
+        }
+
+        @media (max-width: 550px) {
+            width: 400px;
+        }
+
+        @media (max-width: 477.98px) {
+            top: -35%;
+        }
+
+        @media (max-width: 431.98px) {
+            top: -30%;
+        }
+
+        @media (max-width: 369.98px) {
+            top: -25%;
         }
 
         @media (max-width: 450px) {
@@ -727,7 +822,7 @@ body {
                 font-size: 1rem;
                 font-size: 18px;
 
-                @media (max-width: 450px) {
+                @media (max-width: 550px) {
                     width: 100%;
                     font-size: 16px;
                 }
@@ -1384,104 +1479,236 @@ body {
 
 
 
-// Основные стили для таблицы
-.additional-services__table {
-    width: 70%;
-    border-radius: 8px; // Скругление углов
-    overflow: hidden; // Чтобы скругленные углы не выходили за рамки
-    border: 1px solid #e0e0e0; // Лёгкая светлая рамка
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Тень для лёгкого "подъёма" таблицы
-    // font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    // margin-top: 20px;
-    // margin-bottom: 20px;
-    margin: 20px auto 40px auto;
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+// // Основные стили для таблицы
+// .additional-services__table {
+//     width: 70%;
+//     border-radius: 8px; // Скругление углов
+//     overflow: hidden; // Чтобы скругленные углы не выходили за рамки
+//     border: 1px solid #e0e0e0; // Лёгкая светлая рамка
+//     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Тень для лёгкого "подъёма" таблицы
+//     // font-family: 'Arial', sans-serif;
+//     background-color: #fff;
+//     // margin-top: 20px;
+//     // margin-bottom: 20px;
+//     margin: 20px auto 40px auto;
+//     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
 
-    @media (max-width: 992px) {
-        & {
-            width: 94%;
+//     @media (max-width: 992px) {
+//         & {
+//             width: 94%;
+//         }
+//     }
+
+//     @media (max-width: 425px) {
+//         & {
+//             width: 100%;
+//         }
+//     }
+
+//     // Заголовок таблицы
+//     th {
+//         background-color: #f7f7f7;
+//         // color: #333;
+//         color: #1F255B;
+//         font-size: 20px; // Увеличиваем размер шрифта заголовка
+//         font-weight: 700; // Жирный шрифт
+//         padding: 14px 20px;
+//         text-align: left;
+//         letter-spacing: 1px;
+//     }
+
+//     // Строки таблицы
+//     td {
+//         padding: 14px 20px;
+//         text-align: left;
+//         font-size: 18px; // Увеличиваем размер шрифта
+//         color: #555;
+//         font-weight: 600; // Жирность для строк
+//         border-top: 1px solid #f0f0f0;
+//     }
+
+//     // Чересстрочная (alternate) окраска строк для лучшей читаемости
+//     tr:nth-child(even) {
+//         background-color: #f9f9f9;
+//     }
+
+//     tr:hover {
+//         background-color: #fafafa;
+//         transform: translateY(-2px); // Лёгкое поднятие строки при наведении
+//         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Тень при наведении
+//     }
+
+//     // Каскадное оформление заголовка и столбцов
+//     thead {
+//         border-bottom: 2px solid #ddd;
+//     }
+
+//     // Адаптивность для маленьких экранов
+//     @media (max-width: 768px) {
+//         .additional-services__table {
+//             font-size: 0.9rem; // Уменьшаем размер шрифта
+//         }
+
+//         th,
+//         td {
+//             padding: 10px 15px; // Уменьшаем отступы в ячейках
+//         }
+
+//         // Чтобы таблица была прокручиваемой на мобильных устройствах
+//         .additional-services__container {
+//             overflow-x: auto;
+//             -webkit-overflow-scrolling: touch; // Для плавной прокрутки на мобильных устройствах
+//         }
+//     }
+
+//     // Очень маленькие экраны (например, мобильные телефоны)
+//     @media (max-width: 480px) {
+//         .additional-services__table {
+//             // font-size: 0.8rem; // Дополнительное уменьшение шрифта
+//         }
+
+//         th,
+//         td {
+//             padding: 8px 12px; // Меньше отступов для мобильных
+//         }
+
+//         th {
+//             // font-size: 1rem; // Уменьшаем шрифт заголовка
+//         }
+//     }
+// }
+
+
+
+
+
+.main-content {
+
+    &__additional-services {}
+}
+
+.additional-services {
+
+    &__container {}
+
+    &__services-table-container {
+        width: 100%;
+        overflow-x: auto;
+        padding: 20px;
+        // background-color: #f9f9f9;
+        border-radius: 8px;
+        // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &__services-table {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    &__table-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        // background-color: #007bff;
+        background-color: #1F255B;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 8px 8px 0 0;
+    }
+
+    &__table-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        background-color: #ffffff;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+
+        align-items: center;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            background-color: #f0f8ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        div {
+            flex: 1;
+            text-align: left;
+            font-size: 16px;
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                font-weight: 600;
+            }
+
+            &:nth-child(2) {
+                text-align: center;
+            }
+
+            &:nth-child(3) {
+                text-align: right;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            & {
+                flex-wrap: wrap;
+            }
+
+            & div:nth-child(3) {
+                flex: 0 0 100%;
+                margin-top: 10px;
+            }
+
+            & div:nth-child(1),
+            & div:nth-child(2) {
+                flex: 0 0 50%;
+            }
         }
     }
 
-    @media (max-width: 425px) {
-        & {
-            width: 100%;
-        }
-    }
-
-    // Заголовок таблицы
-    th {
-        background-color: #f7f7f7;
-        // color: #333;
+    &__button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s, color 0.3s, text-shadow 0.3s;
+        background-color: #8EC544;
         color: #1F255B;
-        font-size: 20px; // Увеличиваем размер шрифта заголовка
-        font-weight: 700; // Жирный шрифт
-        padding: 14px 20px;
-        text-align: left;
-        letter-spacing: 1px;
-    }
+        border: none;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255);
 
-    // Строки таблицы
-    td {
-        padding: 14px 20px;
-        text-align: left;
-        font-size: 18px; // Увеличиваем размер шрифта
-        color: #555;
-        font-weight: 600; // Жирность для строк
-        border-top: 1px solid #f0f0f0;
-    }
-
-    // Чересстрочная (alternate) окраска строк для лучшей читаемости
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-
-    tr:hover {
-        background-color: #fafafa;
-        transform: translateY(-2px); // Лёгкое поднятие строки при наведении
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Тень при наведении
-    }
-
-    // Каскадное оформление заголовка и столбцов
-    thead {
-        border-bottom: 2px solid #ddd;
-    }
-
-    // Адаптивность для маленьких экранов
-    @media (max-width: 768px) {
-        .additional-services__table {
-            font-size: 0.9rem; // Уменьшаем размер шрифта
+        &:hover {
+            background-color: #73a333;
+            color: #ffffff;
+            transform: scale(1.05);
+            text-shadow: 2px 2px 5px rgb(0, 0, 0);
         }
 
-        th,
-        td {
-            padding: 10px 15px; // Уменьшаем отступы в ячейках
-        }
-
-        // Чтобы таблица была прокручиваемой на мобильных устройствах
-        .additional-services__container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch; // Для плавной прокрутки на мобильных устройствах
-        }
-    }
-
-    // Очень маленькие экраны (например, мобильные телефоны)
-    @media (max-width: 480px) {
-        .additional-services__table {
-            // font-size: 0.8rem; // Дополнительное уменьшение шрифта
-        }
-
-        th,
-        td {
-            padding: 8px 12px; // Меньше отступов для мобильных
-        }
-
-        th {
-            // font-size: 1rem; // Уменьшаем шрифт заголовка
+        @media (max-width: 768px) {
+            width: 100%;
+            box-sizing: border-box;
         }
     }
 }
+
+.-container {}
+
+
+
 
 
 /*------------------additional-services END-------------------*/
