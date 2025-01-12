@@ -1894,6 +1894,129 @@ body {
 
 
 
+
+/*------------------examples-work START-------------------*/
+
+.main-content {
+
+    &__examples-work {}
+}
+
+.examples-work {
+    margin-bottom: 70px;
+
+    &__container {}
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 60px 0 20px 0;
+        text-align: center;
+    }
+
+    &__header-title {
+        color: #1F255B;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: calc(46 / 36 * 100%);
+
+        @media (max-width: 959.98px) {
+            & {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            & {
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+.-container {}
+
+
+
+/* Основной слайдер */
+.main-slider {
+    margin-top: 20px;
+    width: 100%;
+    height: max-content;
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    /* Стрелки */
+    .swiper-button-prev,
+    .swiper-button-next {
+        // color: #333; // Цвет стрелок
+        color: #1F255B; // Цвет стрелок
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 16px;
+    }
+}
+
+/* Превью-слайдер */
+.thumbs-slider {
+    margin-top: 20px;
+    width: 150px;
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+
+        img {
+            width: 50px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        &:hover,
+        &.swiper-slide-thumb-active {
+            opacity: 1; // Увеличение яркости активного превью
+        }
+    }
+}
+
+
+
+
+/*------------------examples-work END-------------------*/
+
+
+
 /*------------------footer-------------------*/
 
 .footer {
@@ -2180,3 +2303,90 @@ body {
         font-weight: 600;
     }
 }
+
+
+/*------------------buttons START-------------------*/
+
+
+
+// Общие стили для кнопок
+.floating-buttons {
+    &__button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 1000;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+
+                transform: scale(1.1);
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+            // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        // Анимация вращения
+        animation: rotate-bounce 2s infinite linear;
+
+
+    }
+
+    &__button--call {
+        background-color: hidden;
+        bottom: 75px; // Расстояние между кнопками
+    }
+
+    &__button--whatsapp {
+        background-color: hidden;
+    }
+}
+
+// Анимация вращения
+@keyframes rotate-bounce {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: 0;
+    }
+
+    25% {
+        transform: rotate(-10deg);
+        animation-timing-function: 0;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: 0;
+    }
+
+    75% {
+        transform: rotate(10deg);
+        animation-timing-function: 0;
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+
+/*------------------buttons END-------------------*/

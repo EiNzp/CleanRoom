@@ -1413,6 +1413,99 @@ body {
 }
 
 /*------------------advantages END-------------------*/
+/*------------------examples-work START-------------------*/
+.examples-work {
+  margin-bottom: 70px;
+}
+.examples-work__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 0 20px 0;
+  text-align: center;
+}
+.examples-work__header-title {
+  color: #1F255B;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 127.7777777778%;
+}
+@media (max-width: 959.98px) {
+  .examples-work__header-title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 767.98px) {
+  .examples-work__header-title {
+    font-size: 26px;
+  }
+}
+
+/* Основной слайдер */
+.main-slider {
+  margin-top: 20px;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  /* Стрелки */
+}
+.main-slider .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-slider .swiper-slide img {
+  width: 300px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next {
+  color: #1F255B;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+}
+.main-slider .swiper-button-prev:hover,
+.main-slider .swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.main-slider .swiper-button-prev::after,
+.main-slider .swiper-button-next::after {
+  font-size: 16px;
+}
+
+/* Превью-слайдер */
+.thumbs-slider {
+  margin-top: 20px;
+  width: 150px;
+}
+.thumbs-slider .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.thumbs-slider .swiper-slide img {
+  width: 50px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.thumbs-slider .swiper-slide:hover, .thumbs-slider .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+/*------------------examples-work END-------------------*/
 /*------------------footer-------------------*/
 .footer {
   background-color: #9ce9ea;
@@ -1640,3 +1733,64 @@ body {
   color: green;
   font-weight: 600;
 }
+
+/*------------------buttons START-------------------*/
+.floating-buttons__button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  animation: rotate-bounce 2s infinite linear;
+}
+.floating-buttons__button img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.floating-buttons__button img:hover {
+  transform: scale(1.1);
+}
+.floating-buttons__button:hover {
+  transform: scale(1.1);
+}
+.floating-buttons__button--call {
+  background-color: hidden;
+  bottom: 75px;
+}
+.floating-buttons__button--whatsapp {
+  background-color: hidden;
+}
+
+@keyframes rotate-bounce {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: 0;
+  }
+  25% {
+    transform: rotate(-10deg);
+    animation-timing-function: 0;
+  }
+  50% {
+    transform: rotate(0deg);
+    animation-timing-function: 0;
+  }
+  75% {
+    transform: rotate(10deg);
+    animation-timing-function: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*------------------buttons END-------------------*/

@@ -172,50 +172,80 @@ document.addEventListener('keydown', function (e) {
 
 
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  // loop: true,
-  slidesPerView: 2,
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 10
+// const swiper = new Swiper('.swiper', {
+//   // Optional parameters
+//   direction: 'horizontal',
+//   // loop: true,
+//   slidesPerView: 2,
+//   breakpoints: {
+//     320: {
+//       slidesPerView: 1,
+//       spaceBetween: 10
+//     },
+//     // when window width is >= 480px
+//     480: {
+//       slidesPerView: 1,
+//       spaceBetween: 10
+//     },
+//     // when window width is >= 640px
+//     640: {
+//       slidesPerView: 1.15,
+//       spaceBetween: 30
+//     },
+//     900: {
+//       slidesPerView: 2.15,
+//       spaceBetween: 30
+//     }
+//   },
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+
+//     clickable: true,
+
+//     dynamicBullets: true,
+//   },
+
+//   grabCursor: true,
+
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+
+
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Превью-слайдер
+  const thumbsSlider = new Swiper(".thumbs-slider", {
+    slidesPerView: 3, // Количество видимых превью
+    spaceBetween: 10, // Расстояние между превью
+    freeMode: true, // Свободная прокрутка
+    watchSlidesProgress: true, // Следить за видимостью слайдов
+  });
+
+  // Основной слайдер
+  const mainSlider = new Swiper(".main-slider", {
+    loop: true, // Бесконечный слайдер
+    autoplay: {
+      delay: 5000, // Автопрокрутка каждые 5 секунд
     },
-    // when window width is >= 480px
-    480: {
-      slidesPerView: 1,
-      spaceBetween: 10
+    navigation: {
+      nextEl: ".swiper-button-next", // Стрелка "вперед"
+      prevEl: ".swiper-button-prev", // Стрелка "назад"
     },
-    // when window width is >= 640px
-    640: {
-      slidesPerView: 1.15,
-      spaceBetween: 30
+    thumbs: {
+      swiper: thumbsSlider, // Связь с превью-слайдером
     },
-    900: {
-      slidesPerView: 2.15,
-      spaceBetween: 30
-    }
-  },
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-
-    clickable: true,
-
-    dynamicBullets: true,
-  },
-
-  grabCursor: true,
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-
+  });
 });
+
+
+
+
 
 
 
