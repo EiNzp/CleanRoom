@@ -2019,65 +2019,201 @@ body {
 
 /*------------------footer-------------------*/
 
+// .footer {
+//     background-color: #9ce9ea;
+
+//     &__container {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         padding-top: 25px;
+//         padding-bottom: 25px;
+//         row-gap: 20px;
+//     }
+
+//     &__header {}
+
+//     &__header-item {
+//         font-size: 20px;
+//         line-height: calc(24 / 20 * 100%);
+//     }
+
+//     &__content {}
+// }
+
+// .-container {}
+
+// .content-footer {
+//     &__list {
+//         display: flex;
+//         column-gap: 40px;
+//         row-gap: 20px;
+//         text-align: center;
+
+//         @media (max-width: 374.98px) {
+//             & {
+//                 flex-direction: column;
+//             }
+//         }
+//     }
+
+//     &__item {}
+
+//     &__herder {
+//         font-size: 16px;
+//         line-height: calc(20 / 16 * 100%);
+//         font-weight: 700;
+//         padding-bottom: 10px;
+//     }
+
+//     &__phone {
+//         font-size: 16px;
+//         line-height: calc(20 / 16 * 100%);
+//         font-weight: 400;
+//     }
+
+//     &__text {
+//         font-size: 16px;
+//         line-height: calc(22 / 16 * 100%);
+//         font-weight: 400;
+//     }
+// }
+
 .footer {
-    background-color: #9ce9ea;
+
+    &__container {}
+
+    &__logo-link {}
+
+    &__logo {}
+
+    &__contacts {}
+
+    &__socials {
+
+        &-link {}
+
+        &-icon {}
+    }
+}
+
+// Медиазапросы для адаптивности
+@media (max-width: 768px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer__contacts {
+        margin-top: 15px;
+    }
+
+    .footer__socials {
+        margin-top: 15px;
+    }
+}
+
+
+
+
+
+
+.footer {
+
+    background-color: #000000; // Цвет фона
+    color: #fff; // Цвет текста
+    padding: 20px 0;
 
     &__container {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        padding-top: 25px;
-        padding-bottom: 25px;
-        row-gap: 20px;
-    }
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
 
-    &__header {}
-
-    &__header-item {
-        font-size: 20px;
-        line-height: calc(24 / 20 * 100%);
-    }
-
-    &__content {}
-}
-
-.-container {}
-
-.content-footer {
-    &__list {
-        display: flex;
-        column-gap: 40px;
-        row-gap: 20px;
-        text-align: center;
-
-        @media (max-width: 374.98px) {
+        @media (max-width: 768px) {
             & {
                 flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+        }
+    }
+
+    &__logo-link {
+        display: inline-block;
+    }
+
+    &__logo {
+        width: 220px;
+        height: auto;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 5px;
+            font-size: 16px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+
+            & {
+                margin-top: 15px;
+            }
+
+        }
+    }
+
+    &__phone {}
+
+    &__email {}
+
+    &__socials {
+        display: flex;
+        gap: 10px;
+
+        @media (max-width: 768px) {
+            & {
+                margin-top: 15px;
             }
         }
     }
 
-    &__item {}
+    &__social-link {
+        display: inline-block;
 
-    &__herder {
-        font-size: 16px;
-        line-height: calc(20 / 16 * 100%);
-        font-weight: 700;
-        padding-bottom: 10px;
+        &:hover .footer__social-icon {
+            transform: scale(1.1);
+        }
     }
 
-    &__phone {
-        font-size: 16px;
-        line-height: calc(20 / 16 * 100%);
-        font-weight: 400;
-    }
-
-    &__text {
-        font-size: 16px;
-        line-height: calc(22 / 16 * 100%);
-        font-weight: 400;
+    &__social-icon {
+        width: 32px; // Устанавливаем фиксированную ширину
+        height: 32px; // Устанавливаем фиксированную высоту
+        transition: transform 0.3s ease;
+        object-fit: contain; // Убедимся, что иконка сохраняет свои пропорции
     }
 }
+
+.-container {}
+
+
 
 /*------------------popup-form-------------------*/
 
@@ -2352,12 +2488,24 @@ body {
 
     &__button--call {
         background-color: hidden;
-        bottom: 75px; // Расстояние между кнопками
+        bottom: 185px; // Расстояние между кнопками
     }
 
     &__button--whatsapp {
         background-color: hidden;
+        bottom: 130px; // Расстояние между кнопками
     }
+
+    &__button--facebook {
+        background-color: hidden;
+        bottom: 75px; // Расстояние между кнопками
+    }
+
+    &__button--YouTube {
+        background-color: hidden;
+    }
+
+
 }
 
 // Анимация вращения
