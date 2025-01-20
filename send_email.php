@@ -1,35 +1,46 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Получаем данные из формы
-    $formType = isset($_POST['service']) ? 'main-form' : 'contact-form';
-    $name = htmlspecialchars($_POST['name']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
+// Проверяем метод запроса
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Читаем JSON из тела запроса
+    $data = json_decode(file_get_contents("php://input"), true);
 
-    // Указываем email получателя
+    if (!$data) {
+        http_response_code(400);
+        echo "Invalid JSON.";
+        exit;
+    }
+
+    // Извлекаем данные
+    $name = htmlspecialchars($data['name'] ?? '');
+    $phone = htmlspecialchars($data['phone'] ?? '');
+    $service = htmlspecialchars($data['service'] ?? 'N/A');
+
+    // Проверка обязательных полей
+    if (empty($name) || empty($phone)) {
+        http_response_code(400);
+        echo "Name and phone are required.";
+        exit;
+    }
+
+    // Формируем email
     $to = "avocodezp@tutanota.com";
-    $subject = $formType == 'main-form' ? "New Request: Main Form" : "New Request: Contact Form";
-
-    // Составляем тело письма
-    $message = "You have received a new form submission:\n\n";
-    $message .= "Form Type: " . ($formType == 'main-form' ? "Main Form" : "Contact Form") . "\n";
+    $subject = "New Form Submission";
+    $message = "You received a new form submission:\n\n";
     $message .= "Name: $name\n";
     $message .= "Phone: $phone\n";
-    if ($formType == 'main-form') {
-        $message .= "Service: $service\n";
-    }
-    
-    // Заголовки для отправки
-    $headers = "From: clean-room.uk\r\n";
-    $headers .= "Reply-To: $phone\r\n";
+    $message .= "Service: $service\n";
 
-    // Отправляем письмо
+    $headers = "From: no-reply@example.com\r\n";
+
+    // Отправляем email
     if (mail($to, $subject, $message, $headers)) {
-        echo "Message sent successfully!";
+        echo "Form submitted successfully.";
     } else {
-        echo "Failed to send message.";
+        http_response_code(500);
+        echo "Failed to send email.";
     }
 } else {
-    echo "Invalid request.";
+    http_response_code(405);
+    echo "Method not allowed.";
 }
 ?>

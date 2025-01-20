@@ -606,3 +606,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// ОТПРАВКА ФОРМ
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Функция для обработки отправки формы
+  const handleFormSubmit = (formId, url) => {
+    const form = document.getElementById(formId);
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Предотвращаем стандартное поведение отправки
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries()); // Конвертируем FormData в объект
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          const result = await response.text();
+          alert("Form submitted successfully: " + result);
+        } else {
+          alert("Failed to submit the form: " + response.status);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while sending the form.");
+      }
+    });
+  };
+
+  // Подключаем обработчики к формам
+  handleFormSubmit("contact-form", "send_email.php");
+  handleFormSubmit("main-form", "send_email.php");
+});
