@@ -319,7 +319,7 @@ body {
   align-items: center;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
+  z-index: 1;
 }
 .menu__social-link img {
   width: 100%;
@@ -1552,6 +1552,7 @@ body {
 }
 .examples-work__item img:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 .examples-work__modal {
   display: none;

@@ -316,11 +316,11 @@ function closeModal(modal) {
 
 // Получаем элементы галереи и модального окна
 const galleryItems = document.querySelectorAll('.examples-work__image');
-const modal = document.querySelector('.examples-work__modal');
-const modalImage = modal.querySelector('.examples-work__modal-image');
-const modalClose = modal.querySelector('.examples-work__modal-close');
-const modalPrev = modal.querySelector('.examples-work__modal-prev');
-const modalNext = modal.querySelector('.examples-work__modal-next');
+const modalExamples = document.querySelector('.examples-work__modal');
+const modalImage = modalExamples.querySelector('.examples-work__modal-image');
+const modalClose = modalExamples.querySelector('.examples-work__modal-close');
+const modalPrev = modalExamples.querySelector('.examples-work__modal-prev');
+const modalNext = modalExamples.querySelector('.examples-work__modal-next');
 
 let currentIndex = 0;
 let startX = 0;
@@ -332,12 +332,12 @@ function openModal(index) {
   currentIndex = index;
   const imageSrc = galleryItems[index].src;
   modalImage.src = imageSrc;
-  modal.classList.add('active');
+  modalExamples.classList.add('active');
 }
 
 // Закрытие модального окна
-function closeModal() {
-  modal.classList.remove('active');
+function closeModal2() {
+  modalExamples.classList.remove('active');
   modalImage.src = '';
 }
 
@@ -359,14 +359,14 @@ galleryItems.forEach((item, index) => {
 });
 
 // Обработчики событий для модального окна
-modalClose.addEventListener('click', closeModal);
+modalClose.addEventListener('click', closeModal2);
 modalPrev.addEventListener('click', showPrev);
 modalNext.addEventListener('click', showNext);
 
 // Закрытие модального окна при клике вне изображения
-modal.addEventListener('click', (event) => {
-  if (event.target === modal && !isDragging) {
-    closeModal();
+modalExamples.addEventListener('click', (event) => {
+  if (event.target === modalExamples && !isDragging) {
+    closeModal2();
   }
 });
 
@@ -382,29 +382,29 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Обработчики для свайпов и перетягивания
-modal.addEventListener('touchstart', (event) => {
+modalExamples.addEventListener('touchstart', (event) => {
   startX = event.touches[0].clientX;
 });
 
-modal.addEventListener('touchend', (event) => {
+modalExamples.addEventListener('touchend', (event) => {
   endX = event.changedTouches[0].clientX;
   handleSwipe();
 });
 
-modal.addEventListener('mousedown', (event) => {
+modalExamples.addEventListener('mousedown', (event) => {
   if (event.button === 0) { // Только для левой кнопки мыши
     isDragging = true;
     startX = event.clientX;
   }
 });
 
-modal.addEventListener('mousemove', (event) => {
+modalExamples.addEventListener('mousemove', (event) => {
   if (isDragging) {
     endX = event.clientX;
   }
 });
 
-modal.addEventListener('mouseup', (event) => {
+modalExamples.addEventListener('mouseup', (event) => {
   if (isDragging && event.button === 0) { // Только для левой кнопки мыши
     isDragging = false;
     endX = event.clientX;
@@ -412,7 +412,7 @@ modal.addEventListener('mouseup', (event) => {
   }
 });
 
-modal.addEventListener('mouseleave', () => {
+modalExamples.addEventListener('mouseleave', () => {
   if (isDragging) {
     isDragging = false;
   }
