@@ -26,133 +26,133 @@ for (const i in menuItems) {
 
 // открытие формы
 // window.onload = function() {
-const popupForm = document.querySelector('.popup-form');
-const buttonsActivForm = [...document.querySelectorAll('[class*="button-form-activ"]')];
-const popupThankyou = document.querySelector('.popup-thankyou');
+// const popupForm = document.querySelector('.popup-form');
+// const buttonsActivForm = [...document.querySelectorAll('[class*="button-form-activ"]')];
+// const popupThankyou = document.querySelector('.popup-thankyou');
 
-for (const i in buttonsActivForm) {
-  let el = buttonsActivForm[i];
+// for (const i in buttonsActivForm) {
+//   let el = buttonsActivForm[i];
 
-  el.addEventListener('click', function (e) {
-    e.preventDefault();
-    popupForm.classList.remove("popup-form_disable");
-    document.body.classList.add('body_lock');
-  })
-}
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     popupForm.classList.remove("popup-form_disable");
+//     document.body.classList.add('body_lock');
+//   })
+// }
 
-// закрытие формы
+// // закрытие формы
 
-const closeButton = document.querySelector('.popup-form__close');
-if (closeButton) {
-  closeButton.addEventListener('click', function () {
-    popupForm.classList.add("popup-form_disable");
-    document.body.classList.remove('body_lock')
-  });
-}
+// const closeButton = document.querySelector('.popup-form__close');
+// if (closeButton) {
+//   closeButton.addEventListener('click', function () {
+//     popupForm.classList.add("popup-form_disable");
+//     document.body.classList.remove('body_lock')
+//   });
+// }
 
-popupForm.addEventListener('click', function (e) {
-  if (!e.target.closest('.popup-form__content')) {
-    popupForm.classList.add("popup-form_disable");
-    document.body.classList.remove('body_lock');
-  }
-})
+// popupForm.addEventListener('click', function (e) {
+//   if (!e.target.closest('.popup-form__content')) {
+//     popupForm.classList.add("popup-form_disable");
+//     document.body.classList.remove('body_lock');
+//   }
+// })
 
-// провнрка на нажатие кнопки "Esc" у нее код 27
-document.addEventListener('keydown', function (e) {
-  if (e.which === 27) {
-    popupForm.classList.add("popup-form_disable");
-    document.body.classList.remove('body_lock');
-  }
-})
+// // провнрка на нажатие кнопки "Esc" у нее код 27
+// document.addEventListener('keydown', function (e) {
+//   if (e.which === 27) {
+//     popupForm.classList.add("popup-form_disable");
+//     document.body.classList.remove('body_lock');
+//   }
+// })
 
-// отправка формы
+// // отправка формы
 
-$('.form-popup').on('submit', function (event) {
+// $('.form-popup').on('submit', function (event) {
 
-  event.stopPropagation();
-  event.preventDefault();
+//   event.stopPropagation();
+//   event.preventDefault();
 
-  let form = this,
-    submit = $('.submit', form),
-    data = new FormData(),
-    files = $('input[type=file]')
-
-
-  $('.submit', form).val('Отправка...');
-  $('input, textarea', form).attr('disabled', '');
-
-  data.append('Имя', $('[name="name"]', form).val());
-  data.append('Телефон', $('[name="phone"]', form).val());
-  data.append('Описание', $('[name="opisanie"]', form).val());
+//   let form = this,
+//     submit = $('.submit', form),
+//     data = new FormData(),
+//     files = $('input[type=file]')
 
 
-  files.each(function (key, file) {
-    let cont = file.files;
-    if (cont) {
-      $.each(cont, function (key, value) {
-        data.append(key, value);
-      });
-    }
-  });
+//   $('.submit', form).val('Отправка...');
+//   $('input, textarea', form).attr('disabled', '');
 
-  $.ajax({
-    url: 'ajax.php',
-    type: 'POST',
-    data: data,
-    cache: false,
-    dataType: 'json',
-    processData: false,
-    contentType: false,
-    xhr: function () {
-      let myXhr = $.ajaxSettings.xhr();
+//   data.append('Имя', $('[name="name"]', form).val());
+//   data.append('Телефон', $('[name="phone"]', form).val());
+//   data.append('Описание', $('[name="opisanie"]', form).val());
 
-      if (myXhr.upload) {
-        myXhr.upload.addEventListener('progress', function (e) {
-          if (e.lengthComputable) {
-            let percentage = (e.loaded / e.total) * 100;
-            percentage = percentage.toFixed(0);
-            $('.submit', form)
-              .html(percentage + '%');
-          }
-        }, false);
-      }
 
-      return myXhr;
-    },
-    error: function (jqXHR, textStatus) {
-      // Тут выводим ошибку
-    },
-    complete: function () {
-      // Тут можем что-то делать ПОСЛЕ успешной отправки формы
-      form.reset()
-      $('#name').removeAttr('disabled');
-      $('#Phone').removeAttr('disabled');
-      $('#Opisanie').removeAttr('disabled');
-      $('#formPopupSubmit').removeAttr('disabled');
-      popupForm.classList.add("popup-form_disable");
-      popupThankyou.classList.remove("popup-thankyou_disable");
-    }
-  });
+//   files.each(function (key, file) {
+//     let cont = file.files;
+//     if (cont) {
+//       $.each(cont, function (key, value) {
+//         data.append(key, value);
+//       });
+//     }
+//   });
 
-  return false;
-});
+//   $.ajax({
+//     url: 'ajax.php',
+//     type: 'POST',
+//     data: data,
+//     cache: false,
+//     dataType: 'json',
+//     processData: false,
+//     contentType: false,
+//     xhr: function () {
+//       let myXhr = $.ajaxSettings.xhr();
+
+//       if (myXhr.upload) {
+//         myXhr.upload.addEventListener('progress', function (e) {
+//           if (e.lengthComputable) {
+//             let percentage = (e.loaded / e.total) * 100;
+//             percentage = percentage.toFixed(0);
+//             $('.submit', form)
+//               .html(percentage + '%');
+//           }
+//         }, false);
+//       }
+
+//       return myXhr;
+//     },
+//     error: function (jqXHR, textStatus) {
+//       // Тут выводим ошибку
+//     },
+//     complete: function () {
+//       // Тут можем что-то делать ПОСЛЕ успешной отправки формы
+//       form.reset()
+//       $('#name').removeAttr('disabled');
+//       $('#Phone').removeAttr('disabled');
+//       $('#Opisanie').removeAttr('disabled');
+//       $('#formPopupSubmit').removeAttr('disabled');
+//       popupForm.classList.add("popup-form_disable");
+//       popupThankyou.classList.remove("popup-thankyou_disable");
+//     }
+//   });
+
+//   return false;
+// });
 
 // закрытие popup-thankyou
 
 const closeButtonThankyou = document.querySelector('.popup-thankyou__close');
-if (closeButton) {
-  closeButtonThankyou.addEventListener('click', function () {
-    popupThankyou.classList.add("popup-thankyou_disable");
-    document.body.classList.remove('body_lock')
-  });
-}
+// if (closeButton) {
+//   closeButtonThankyou.addEventListener('click', function () {
+//     popupThankyou.classList.add("popup-thankyou_disable");
+//     document.body.classList.remove('body_lock')
+//   });
+// }
 
-popupThankyou.addEventListener('click', function (e) {
-  if (!e.target.closest('.popup-thankyou__content')) {
-    popupThankyou.classList.add("popup-thankyou_disable");
-    document.body.classList.remove('body_lock');
-  }
-})
+// popupThankyou.addEventListener('click', function (e) {
+//   if (!e.target.closest('.popup-thankyou__content')) {
+//     popupThankyou.classList.add("popup-thankyou_disable");
+//     document.body.classList.remove('body_lock');
+//   }
+// })
 
 // провнрка на нажатие кнопки "Esc" у нее код 27
 document.addEventListener('keydown', function (e) {

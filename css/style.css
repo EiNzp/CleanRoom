@@ -1029,21 +1029,18 @@ body {
   background-image: url("../img/service-cards/cards_6.png");
 }
 .service-cards__card:nth-child(7) {
-  background-image: url("../img/service-cards/cards_7.jpg");
-}
-.service-cards__card:nth-child(8) {
   background-image: url("../img/service-cards/cards_8.png");
 }
-.service-cards__card:nth-child(9) {
+.service-cards__card:nth-child(8) {
   background-image: url("../img/service-cards/cards_9.png");
 }
-.service-cards__card:nth-child(10) {
+.service-cards__card:nth-child(9) {
   background-image: url("../img/service-cards/cards_10.jpg");
 }
-.service-cards__card:nth-child(11) {
+.service-cards__card:nth-child(10) {
   background-image: url("../img/service-cards/cards_11.png");
 }
-.service-cards__card:nth-child(12) {
+.service-cards__card:nth-child(11) {
   background-image: url("../img/service-cards/cards_12.jpg");
 }
 .service-cards__card:hover {
