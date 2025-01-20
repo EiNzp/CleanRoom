@@ -1,46 +1,74 @@
 <?php
-// Проверяем метод запроса
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Убедитесь, что PHPMailer установлен через Composer
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Читаем JSON из тела запроса
-    $data = json_decode(file_get_contents("php://input"), true);
+    // Определяем, какая форма отправлена
+    $formType = isset($_POST['service']) ? 'main-form' : 'contact-form';
 
-    if (!$data) {
-        http_response_code(400);
-        echo "Invalid JSON.";
-        exit;
-    }
+    // Получаем данные из формы
+    $name = htmlspecialchars($_POST['name'] ?? '');
+    $phone = htmlspecialchars($_POST['phone'] ?? '');
+    $service = htmlspecialchars($_POST['service'] ?? 'N/A'); // Только для main-form
 
-    // Извлекаем данные
-    $name = htmlspecialchars($data['name'] ?? '');
-    $phone = htmlspecialchars($data['phone'] ?? '');
-    $service = htmlspecialchars($data['service'] ?? 'N/A');
-
-    // Проверка обязательных полей
+    // Проверяем обязательные поля
     if (empty($name) || empty($phone)) {
         http_response_code(400);
         echo "Name and phone are required.";
         exit;
     }
 
-    // Формируем email
-    $to = "avocodezp@tutanota.com";
-    $subject = "New Form Submission";
-    $message = "You received a new form submission:\n\n";
-    $message .= "Name: $name\n";
-    $message .= "Phone: $phone\n";
-    $message .= "Service: $service\n";
+    // Инициализация PHPMailer
+    $mail = new PHPMailer(true);
 
-    $headers = "From: no-reply@example.com\r\n";
+    try {
+        // Настройки SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';            // SMTP сервер
+        $mail->SMTPAuth = true;
+        $mail->Username = 'your-email@gmail.com'; // Ваш email
+        $mail->Password = 'your-password';       // Пароль
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port = 587;
 
-    // Отправляем email
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Form submitted successfully.";
-    } else {
+        // От кого письмо
+        $mail->setFrom('your-email@gmail.com', 'Website Form');
+
+        // Кому письмо
+        $mail->addAddress('avocodezp@tutanota.com', 'Admin');
+
+        // Тема письма
+        $mail->Subject = 'New Form Submission';
+
+        // Содержимое письма
+        if ($formType === 'contact-form') {
+            $mail->Body = "
+                <h1>Contact Form Submission</h1>
+                <p><strong>Name:</strong> $name</p>
+                <p><strong>Phone:</strong> $phone</p>
+            ";
+        } elseif ($formType === 'main-form') {
+            $mail->Body = "
+                <h1>Main Form Submission</h1>
+                <p><strong>Name:</strong> $name</p>
+                <p><strong>Phone:</strong> $phone</p>
+                <p><strong>Service:</strong> $service</p>
+            ";
+        }
+
+        $mail->isHTML(true);
+
+        // Отправляем письмо
+        $mail->send();
+        echo 'Message has been sent successfully';
+    } catch (Exception $e) {
         http_response_code(500);
-        echo "Failed to send email.";
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 } else {
     http_response_code(405);
-    echo "Method not allowed.";
+    echo "Method Not Allowed";
 }
 ?>

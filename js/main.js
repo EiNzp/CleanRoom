@@ -609,39 +609,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // ОТПРАВКА ФОРМ
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Функция для обработки отправки формы
-  const handleFormSubmit = (formId, url) => {
+  const forms = ["contact-form", "main-form"];
+
+  forms.forEach((formId) => {
     const form = document.getElementById(formId);
 
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Предотвращаем стандартное поведение отправки
+      event.preventDefault();
 
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries()); // Конвертируем FormData в объект
+      const response = await fetch("send_email.php", {
+        method: "POST",
+        body: formData,
+      });
 
-      try {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          const result = await response.text();
-          alert("Form submitted successfully: " + result);
-        } else {
-          alert("Failed to submit the form: " + response.status);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred while sending the form.");
+      if (response.ok) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Failed to submit the form. Error: " + (await response.text()));
       }
     });
-  };
-
-  // Подключаем обработчики к формам
-  handleFormSubmit("contact-form", "send_email.php");
-  handleFormSubmit("main-form", "send_email.php");
+  });
 });

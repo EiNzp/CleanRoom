@@ -38,7 +38,7 @@
             <div class="modal-content">
                 <button class="modal-close" aria-label="Close modal">&times;</button>
                 <h2 class="modal-title">Contact Us</h2>
-                <form class="contact-form" id="contact-form" action="send_email.php" method="post">
+                <form class="contact-form" id="contact-form" action="send_email.php" method="POST">
                     <input type="text" placeholder="Your Name" class="input-field" required>
                     <input type="tel" placeholder="Phone Number" class="input-field phone-mask" required>
                     <button type="submit" class="btn btn-submit">Send</button>
@@ -279,7 +279,7 @@
 
             <div class="main-content__main-form-block main-form-block" id="main-form-block">
                 <div class="main-form-block__container -container">
-                    <form class="main-form-block__form" id="main-form">
+                    <form class="main-form-block__form" id="main-form" method="POST">
                         <label for="service" class="form-group">
                             <span class="form-label">Select a service</span>
                             <select id="service" class="form-select" required>
