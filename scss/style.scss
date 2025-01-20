@@ -1433,6 +1433,8 @@ body {
                 // width: 90%;
                 width: 100%;
                 height: auto;
+
+                height: 100%;
             }
         }
     }
@@ -1492,6 +1494,7 @@ body {
         @media (max-width: 768px) {
             & {
                 width: 100%;
+
             }
         }
     }
