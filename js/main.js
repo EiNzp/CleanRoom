@@ -256,6 +256,8 @@ const detailButtons = document.querySelectorAll(".service-cards__button-details"
 const modals = document.querySelectorAll(".service-cards__modal");
 const body = document.body;
 
+const detailButtonsAdditionalServices = document.querySelectorAll(".additional-services__button");
+
 // Функция для открытия модального окна
 detailButtons.forEach(button => {
   button.addEventListener("click", () => {
@@ -269,6 +271,22 @@ detailButtons.forEach(button => {
     }
   });
 });
+
+
+// Функция для открытия модального окна
+detailButtonsAdditionalServices.forEach(button => {
+  button.addEventListener("click", () => {
+    const modalId = button.getAttribute("data-modal"); // Получаем id модального окна
+    const modal = document.getElementById(`modal-${modalId}`); // Находим нужное окно
+
+    if (modal) {
+      modal.style.display = "block";
+      body.style.overflow = "hidden"; // Блокируем скролл
+      setTimeout(() => (modal.style.opacity = "1"), 10); // Плавное появление
+    }
+  });
+});
+
 
 // Функция для закрытия модальных окон
 modals.forEach(modal => {
@@ -293,6 +311,125 @@ function closeModal(modal) {
     body.style.overflow = "auto"; // Включаем скролл
   }, 300); // Время на анимацию исчезновения
 }
+
+// БЛОК примеры работ НАЧАЛО
+
+// Получаем элементы галереи и модального окна
+const galleryItems = document.querySelectorAll('.examples-work__image');
+const modal = document.querySelector('.examples-work__modal');
+const modalImage = modal.querySelector('.examples-work__modal-image');
+const modalClose = modal.querySelector('.examples-work__modal-close');
+const modalPrev = modal.querySelector('.examples-work__modal-prev');
+const modalNext = modal.querySelector('.examples-work__modal-next');
+
+let currentIndex = 0;
+let startX = 0;
+let endX = 0;
+let isDragging = false;
+
+// Открытие модального окна
+function openModal(index) {
+  currentIndex = index;
+  const imageSrc = galleryItems[index].src;
+  modalImage.src = imageSrc;
+  modal.classList.add('active');
+}
+
+// Закрытие модального окна
+function closeModal() {
+  modal.classList.remove('active');
+  modalImage.src = '';
+}
+
+// Переход к следующей картинке
+function showNext() {
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  modalImage.src = galleryItems[currentIndex].src;
+}
+
+// Переход к предыдущей картинке
+function showPrev() {
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  modalImage.src = galleryItems[currentIndex].src;
+}
+
+// Обработчики событий для галереи
+galleryItems.forEach((item, index) => {
+  item.addEventListener('click', () => openModal(index));
+});
+
+// Обработчики событий для модального окна
+modalClose.addEventListener('click', closeModal);
+modalPrev.addEventListener('click', showPrev);
+modalNext.addEventListener('click', showNext);
+
+// Закрытие модального окна при клике вне изображения
+modal.addEventListener('click', (event) => {
+  if (event.target === modal && !isDragging) {
+    closeModal();
+  }
+});
+
+// Закрытие модального окна клавишей Esc
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeModal();
+  } else if (event.key === 'ArrowRight') {
+    showNext();
+  } else if (event.key === 'ArrowLeft') {
+    showPrev();
+  }
+});
+
+// Обработчики для свайпов и перетягивания
+modal.addEventListener('touchstart', (event) => {
+  startX = event.touches[0].clientX;
+});
+
+modal.addEventListener('touchend', (event) => {
+  endX = event.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+modal.addEventListener('mousedown', (event) => {
+  if (event.button === 0) { // Только для левой кнопки мыши
+    isDragging = true;
+    startX = event.clientX;
+  }
+});
+
+modal.addEventListener('mousemove', (event) => {
+  if (isDragging) {
+    endX = event.clientX;
+  }
+});
+
+modal.addEventListener('mouseup', (event) => {
+  if (isDragging && event.button === 0) { // Только для левой кнопки мыши
+    isDragging = false;
+    endX = event.clientX;
+    handleSwipe();
+  }
+});
+
+modal.addEventListener('mouseleave', () => {
+  if (isDragging) {
+    isDragging = false;
+  }
+});
+
+function handleSwipe() {
+  if (startX - endX > 50) {
+    showNext();
+  } else if (endX - startX > 50) {
+    showPrev();
+  }
+}
+
+
+// БЛОК примеры работ КОЕНЦ
+
+
 
 
 
